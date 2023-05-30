@@ -2,3 +2,7 @@
 	path = airsrl/l10n-italy
 	url = git@github.com:airsrl/l10n-italy.git
 	branch = 16.0
+[submodule "airsrl/oca"]
+	path = airsrl/oca
+	url = git@github.com:airsrl/oca.git
+	branch = 16.0
