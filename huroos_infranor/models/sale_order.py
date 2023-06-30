@@ -4,18 +4,21 @@ import datetime
 def filter_dates(date, operator, value):
     operator = str(operator)
     value = datetime.datetime.strptime(value,'%Y-%m-%d %H:%M:%S')
-    if operator == '>':
-        return date > value
-    elif operator == '>=':
-        return date >= value
-    elif operator == '<':
-        return date < value
-    elif operator == '<=':
-        return date <= value
-    elif operator == '!=':
-        return date != value
-    elif operator == 'in':
-        return date in value
+    if(date):
+        if operator == '>':
+            return date > value
+        elif operator == '>=':
+            return date >= value
+        elif operator == '<':
+            return date < value
+        elif operator == '<=':
+            return date <= value
+        elif operator == '!=':
+            return date != value
+        elif operator == 'in':
+            return date in value
+    else:
+        return False
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
