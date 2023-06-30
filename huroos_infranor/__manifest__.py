@@ -8,7 +8,7 @@
     'category': 'Sales',
     'version': '16.0.0.1',
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale_management'],
     'data': [
     ],
 }
