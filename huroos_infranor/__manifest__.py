@@ -10,5 +10,6 @@
     # any module necessary for this one to work correctly
     'depends': ['base','sale_management'],
     'data': [
+        'views/res_partner.xml'
     ],
 }
