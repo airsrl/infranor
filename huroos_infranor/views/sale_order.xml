@@ -1,0 +1,17 @@
+<odoo>
+    <record id="infranor_view_sale_order_pivot_inherit" model="ir.ui.view">
+        <field name="name">infranor_view_sale_order_pivot_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_pivot"/>
+        <field name="arch" type="xml">
+            <pivot position="inside">
+                <field name="partner_id" type="row"/>
+                <field name="current_year_budget" type="measure"/>
+            </pivot>
+
+            <field name="date_order" position="attributes">
+                <attribute name="type"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,6 +1,7 @@
 from odoo import fields, models
 import datetime
 
+
 def filter_dates(date, operator, value):
     operator = str(operator)
     if value:
@@ -23,6 +24,7 @@ def filter_dates(date, operator, value):
     else:
         return False
 
+
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
@@ -31,6 +33,11 @@ class SaleOrder(models.Model):
         compute='_compute_expected_date', store=False,  # Note: can not be stored since depends on today()
         help="Delivery date you can promise to the customer, computed from the minimum lead time of the order lines.",
         search = "_search_expected_date")
+
+    current_year_budget = fields.Float(
+        related="partner_id.current_year_budget",
+        store=True
+    )
 
     def _search_expected_date(self, operator, value):
         orders = self.search([]).filtered(lambda x : filter_dates(x.expected_date, operator, value))
