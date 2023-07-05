@@ -5,4 +5,4 @@ class SaleOrder(models.Model):
 
     x_studio_date_prevue = fields.Date(string="Data prevista")
 
-    commitment_date = fields.Date(related="order_id.commitment_date")
+    commitment_date = fields.Datetime(related="order_id.commitment_date")
