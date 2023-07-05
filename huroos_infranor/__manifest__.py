@@ -10,6 +10,7 @@
     # any module necessary for this one to work correctly
     'depends': ['base','sale'],
     'data': [
-        'views/res_partner.xml'
+        'views/res_partner.xml',
+        'views/sale_order_line.xml'
     ],
 }
