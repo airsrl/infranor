@@ -8,8 +8,8 @@
     'category': 'Sales',
     'version': '16.0.0.1',
 
-    # any module necessary for this one to work correctly
-    'depends': ['base','sale_management','purchase'],
+    'depends': ['base', 'sale_management', 'purchase'],
+
     'data': [
         'security/ir.model.access.csv',
 
@@ -17,5 +17,5 @@
         'views/res_partner_budget.xml',
         'views/sale_order.xml',
         'views/purchase_order.xml'
-    ],
+    ]
 }
