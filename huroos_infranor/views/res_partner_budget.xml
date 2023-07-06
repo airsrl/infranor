@@ -3,10 +3,11 @@
         <field name="name">view_res_partner_budget_tree</field>
         <field name="model">res.partner.budget</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
-                <field name="partner_id"/>
+            <tree editable="bottom" expand="1">
+                <field name="partner_id" decoration-bf="1"/>
                 <field name="year"/>
-                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
             </tree>
         </field>
     </record>
