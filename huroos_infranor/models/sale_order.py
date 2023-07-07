@@ -30,7 +30,8 @@ class SaleOrder(models.Model):
 
     current_year_budget = fields.Float(
         related="partner_id.current_year_budget",
-        store=True
+        store=True,
+        groups="huroos_infranor.vat_registries_group"
     )
 
     expected_date = fields.Datetime(

@@ -7,11 +7,13 @@ class ResPartner(models.Model):
     budget_ids = fields.One2many(
         inverse_name="partner_id",
         comodel_name="res.partner.budget",
-        string="Budget cliente"
+        string="Budget cliente",
+        groups="huroos_infranor.vat_registries_group"
     )
     current_year_budget = fields.Float(
         string=f"Budget {fields.date.today().year}",
-        compute="_compute_current_year_budget"
+        compute="_compute_current_year_budget",
+        groups="huroos_infranor.vat_registries_group"
     )
 
     @api.depends('budget_ids')
