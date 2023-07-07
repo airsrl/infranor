@@ -1,0 +1,49 @@
+<odoo>
+    <template id="infranor_report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[hasclass('page')]//h2[hasclass('mt-4')]" position="replace">
+            <h2 class="mt-4">
+                <t t-if="env.company.id != 8">
+                    <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice #</span>
+                    <span t-elif="doc.state in ['draft','sent']">Quotation #</span>
+                    <span t-else="">Order #</span>
+                </t>
+                <t t-else="">
+                    <span t-if="env.context.get('proforma', False) or is_pro_forma">Fattura Pro-forma n. </span>
+                    <span t-elif="doc.state in ['draft','sent']">Offerta n. </span>
+                    <span t-else="">Offerta n. </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+        </xpath>
+    </template>
+
+    <!--Template che eredita un template NON presente sul codice ma SOLO sul db del cliente Infranor Srl (Realizzato con Odoo Studio :|)-->
+    <template id="report_sale_order_odoo_studio_inherit" inherit_id="studio_customization.odoo_studio_report_s_c34ee198-06e3-4208-8fb0-729e5a0b64a1">
+        <!--Replace colonne CODICE SA e ORIGINE (solo per company Infranor srl)-->
+        <xpath expr="/t/t/div/table/thead/tr/th[5]" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/table/thead/tr/th[6]" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[5]" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[6]" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+
+        <xpath expr="/t/t/div/div[4]" position="after">
+            <div class="row" t-if="env.company.id == 8">
+                <div class="col">
+                    <t t-if="doc.default_transport_condition_id and env.company.id == 8">
+                        Resa:
+                        <span t-field="doc.default_transport_condition_id"/>
+                    </t>
+                    <br/>
+                    Imballo: Compreso
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
