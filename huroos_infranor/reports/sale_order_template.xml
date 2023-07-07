@@ -15,6 +15,22 @@
                 <span t-field="doc.name"/>
             </h2>
         </xpath>
+
+        <xpath expr="//table" position="after">
+             <t t-if="env.company.id == 8">
+                <t t-if="doc.default_transport_condition_id and env.company.id == 8">
+                    Resa: <span t-field="doc.default_transport_condition_id"/>
+                </t>
+                 <br/>
+                Imballo: Compreso
+            </t>
+        </xpath>
+        <!--<p id="fiscal_position_remark" position="before">
+            <t t-if="doc.default_transport_condition_id">
+                Resa: <span t-field="doc.default_transport_condition_id"/>
+            </t>
+            Imballo: Compreso
+        </p>-->
     </template>
 
     <!--Template che eredita un template NON presente sul codice ma SOLO sul db del cliente Infranor Srl (Realizzato con Odoo Studio :|)-->
@@ -31,6 +47,19 @@
         </xpath>
         <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[6]" position="attributes">
             <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+
+        <xpath expr="/t/t/div/div[4]" position="after">
+            <div class="row" t-if="env.company.id == 8">
+                <div class="col">
+                    <t t-if="doc.default_transport_condition_id and env.company.id == 8">
+                        Resa:
+                        <span t-field="doc.default_transport_condition_id"/>
+                    </t>
+                    <br/>
+                    Imballo: Compreso
+                </div>
+            </div>
         </xpath>
     </template>
 </odoo>
