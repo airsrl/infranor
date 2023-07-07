@@ -1,0 +1,17 @@
+<odoo>
+
+    <record id="view_invoice_data_iva_form" model="ir.ui.view">
+        <field name="name">view_account_config_settings_data_iva</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="huroos_data_iva.view_invoice_data_iva_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_iva']" position="attributes">
+                <attribute name="groups">huroos_infranor.vat_registries_group</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='date_iva']" position="attributes">
+                <attribute name="groups">huroos_infranor.vat_registries_group</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

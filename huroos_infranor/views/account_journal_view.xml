@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_account_journal_form" model="ir.ui.view">
+            <field name="name">account.journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="l10n_it_vat_registries.view_account_journal_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tax_registry_id']" position="attributes">
+                    <attribute name="groups">huroos_infranor.vat_registries_group</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

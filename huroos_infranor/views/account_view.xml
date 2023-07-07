@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="view_tax_code_form" model="ir.ui.view">
+            <field name="name">account.tax.code.form</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="l10n_it_vat_registries.view_tax_code_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='exclude_from_registries']" position="attributes">
+                    <attribute name="groups">huroos_infranor.vat_registries_group</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
