@@ -11,7 +11,6 @@
     'depends': ['base','sale_management','purchase'],
     'data': [
         'views/res_partner.xml',
-        'views/res_partner.xml',
         'views/sale_order.xml',
         'views/purchase_order.xml',
         'reports/sale_order_template.xml'
