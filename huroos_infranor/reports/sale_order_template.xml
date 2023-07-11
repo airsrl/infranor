@@ -33,6 +33,47 @@
             <attribute name="t-if">env.company.id != 8</attribute>
         </xpath>
 
+        <!--Colonna prezzo unitario-->
+        <th name="th_priceunit" position="replace">
+            <th name="th_priceunit" class="text-end">
+                <t t-if="env.company.id != 8">Prix unitaire</t>
+                <t t-else="">PREZZO UNITARIO</t>
+            </th>
+        </th>
+
+        <!--Colonna expected date-->
+        <xpath expr="/t/t/div/table/thead/tr/th[4]" position="replace">
+            <th>
+                <t t-if="env.company.id != 8">Expected date</t>
+                <t t-else="">CONSEGNA</t>
+            </th>
+        </xpath>
+
+        <!--Data ordine-->
+        <xpath expr="/t/t/div/div[2]/div[1]/span" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div[2]/div[1]/span" position="after">
+            <strong t-if="env.company.id == 8">Data: </strong>
+        </xpath>
+
+        <!--Addetto vendite-->
+        <xpath expr="/t/t/div/div[2]/div[2]/span" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div[2]/div[2]/span" position="after">
+            <strong t-if="env.company.id == 8">Ns. Riferimento: </strong>
+            <br/>
+        </xpath>
+
+        <!--Rif. cliente-->
+        <xpath expr="/t/t/div/div[2]/div[3]/span[1]/strong" position="attributes">
+            <attribute name="t-if">env.company.id != 8</attribute>
+        </xpath>
+        <xpath expr="/t/t/div/div[2]/div[3]/span[1]/strong" position="after">
+            <strong t-if="env.company.id == 8">Vs. Riferimento: </strong>
+        </xpath>
+
         <xpath expr="/t/t/div/div[4]" position="after">
             <div class="row" t-if="env.company.id == 8">
                 <div class="col">
@@ -41,7 +82,8 @@
                         <span t-field="doc.default_transport_condition_id"/>
                     </t>
                     <br/>
-                    Imballo: Compreso
+                    Imballo: Compreso<br/>
+                    Validità dell'offerta: 30 giorni
                 </div>
             </div>
         </xpath>
