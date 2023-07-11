@@ -11,7 +11,7 @@
                 <t t-else="">
                     <span t-if="env.context.get('proforma', False) or is_pro_forma">Fattura Pro-forma n. </span>
                     <span t-elif="doc.state in ['draft','sent']">Offerta n. </span>
-                    <span t-else="">Ordine n. </span>
+                    <span t-else="">Conferma d'ordine n. </span>
                     <span t-if="doc.state in ['draft','sent']" t-field="doc.offer_number"/>
                     <span t-else="" t-field="doc.name"/>
                 </t>

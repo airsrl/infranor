@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <field name="date" position="after">
                 <field name="order_ref"/>
+                <field name="confirm_number" attrs="{'readonly': [('sale_count', '!=', 0)]}"/>
             </field>
         </field>
     </record>
