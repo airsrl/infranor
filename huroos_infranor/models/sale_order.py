@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 import datetime
 
 
@@ -39,6 +39,24 @@ class SaleOrder(models.Model):
         compute='_compute_expected_date', store=False,  # Note: can not be stored since depends on today()
         help="Delivery date you can promise to the customer, computed from the minimum lead time of the order lines.",
         search = "_search_expected_date")
+
+    offer_number = fields.Char(
+        help="Campo tecnico per visualizzare sul report un suffisso diverso tra Preventivo e Ordine",
+        compute="_compute_offer_number",
+        groups="huroos_infranor.vat_registries_group"
+    )
+
+    @api.depends('state')
+    def _compute_offer_number(self):
+        for order in self:
+            if order.state == 'draft':
+                number = "P"
+                for letter in order.name:
+                    if letter.isdigit():
+                        number += letter
+                order.offer_number = number
+            else:
+                order.offer_number = False
 
     def _search_expected_date(self, operator, value):
         orders = self.search([]).filtered(lambda x : filter_dates(x.expected_date, operator, value))
