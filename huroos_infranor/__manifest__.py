@@ -8,7 +8,14 @@
     'category': 'Sales',
     'version': '16.0.0.1',
 
-    'depends': ['base', 'sale_management', 'purchase', 'huroos_data_iva'],
+    'depends': [
+        'base',
+        'sale_management',
+        'purchase',
+        'huroos_data_iva',
+        'l10n_it_delivery_note',
+        'huroos_reports_ddt'
+    ],
 
     'data': [
         'security/vat_registry_security.xml',
@@ -21,7 +28,9 @@
         'views/res_partner_budget.xml',
         'views/sale_order.xml',
         'views/purchase_order.xml',
+        'views/stock_delivery_note.xml',
 
-        'reports/sale_order_template.xml'
+        'reports/sale_order_template.xml',
+        'reports/stock_delivery_note_template.xml'
     ]
 }
