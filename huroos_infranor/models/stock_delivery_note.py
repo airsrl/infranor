@@ -8,3 +8,7 @@ class StockDeliveryNote(models.Model):
         string="Rif. Ordine",
         groups="huroos_infranor.vat_registries_group"
     )
+    confirm_number = fields.Char(
+        string="Numero conferma d'ordine",
+        groups="huroos_infranor.vat_registries_group"
+    )
