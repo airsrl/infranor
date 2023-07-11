@@ -1,0 +1,26 @@
+<odoo>
+    <template id="delivery_note_report_template" inherit_id="huroos_reports_ddt.delivery_note_report_template">
+        <!--Aggiungo la cella Rif. Ordine-->
+        <xpath expr="//table[@name='transport_info']//td[@name='td_transport_reason']" position="attributes">
+            <attribute name="style">width:25%;border:1px solid;</attribute>
+        </xpath>
+
+        <xpath expr="//table[@name='transport_info']//td[@name='td_transport_condition']" position="attributes">
+            <attribute name="style">width:25%;border:1px solid;</attribute>
+        </xpath>
+
+        <xpath expr="//table[@name='transport_info']//td[@name='td_transport_method']" position="attributes">
+            <attribute name="style">width:25%;border:1px solid;</attribute>
+        </xpath>
+
+        <xpath expr="//table[@name='transport_info']//td[@name='td_transport_method']" position="after">
+            <td style="width:25%;border:1px solid;" name="td_order_ref">
+                <h3 class="cell_name">Rif. Ordine</h3>
+                <span t-field="doc.order_ref"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//table[@name='transport_info']//td[2]" position="replace"/>
+        <xpath expr="//table[@name='transport_info']//td[3]" position="replace"/>
+    </template>
+</odoo>

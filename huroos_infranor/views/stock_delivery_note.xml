@@ -1,0 +1,12 @@
+<odoo>
+    <record id="infranor_stock_delivery_note_form_view_inherit" model="ir.ui.view">
+        <field name="name">infranor_stock_delivery_note_form_view_inherit</field>
+        <field name="model">stock.delivery.note</field>
+        <field name="inherit_id" ref="l10n_it_delivery_note.stock_delivery_note_form_view"/>
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="order_ref"/>
+            </field>
+        </field>
+    </record>
+</odoo>

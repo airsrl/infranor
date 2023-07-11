@@ -6,13 +6,15 @@
                     <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice #</span>
                     <span t-elif="doc.state in ['draft','sent']">Quotation #</span>
                     <span t-else="">Order #</span>
+                    <span t-field="doc.name"/>
                 </t>
                 <t t-else="">
                     <span t-if="env.context.get('proforma', False) or is_pro_forma">Fattura Pro-forma n. </span>
                     <span t-elif="doc.state in ['draft','sent']">Offerta n. </span>
-                    <span t-else="">Offerta n. </span>
+                    <span t-else="">Ordine n. </span>
+                    <span t-if="doc.state in ['draft','sent']" t-field="doc.offer_number"/>
+                    <span t-else="" t-field="doc.name"/>
                 </t>
-                <span t-field="doc.name"/>
             </h2>
         </xpath>
     </template>
@@ -77,13 +79,13 @@
         <xpath expr="/t/t/div/div[4]" position="after">
             <div class="row" t-if="env.company.id == 8">
                 <div class="col">
-                    <t t-if="doc.default_transport_condition_id and env.company.id == 8">
+                    <t t-if="doc.incoterm and env.company.id == 8">
                         Resa:
-                        <span t-field="doc.default_transport_condition_id"/>
+                        <span t-field="doc.incoterm"/>
                     </t>
                     <br/>
                     Imballo: Compreso<br/>
-                    Validità dell'offerta: 30 giorni
+                    <t t-if="doc.state in ['draft','sent']">Validità dell'offerta: 30 giorni</t>
                 </div>
             </div>
         </xpath>
