@@ -76,18 +76,24 @@
             <strong t-if="env.company.id == 8">Vs. Riferimento: </strong>
         </xpath>
 
-        <xpath expr="/t/t/div/div[4]" position="after">
-            <div class="row" t-if="env.company.id == 8">
+        <!--Termini di pagamento-->
+        <xpath expr="/t/t/div/div[4]" position="replace">
+            <div t-if="env.company.id != 8" class="row">
                 <div class="col">
-                    <t t-if="doc.incoterm and env.company.id == 8">
-                        Resa:
-                        <span t-field="doc.incoterm"/>
-                    </t>
-                    <br/>
-                    Imballo: Compreso<br/>
-                    <t t-if="doc.state in ['draft','sent']">Validità dell'offerta: 30 giorni</t>
+                    <span t-field="doc.payment_term_id.note"/>
                 </div>
             </div>
+            <h4 style="font-weight: bold;margin-top: 30px;">
+                <div style="margin-bottom: -20px;"><span t-field="doc.payment_term_id.note"/></div>
+                Resa: <span t-esc="doc.incoterm.name.lower().capitalize()"/><br/>
+                Imballo: Compreso<br/>
+                <t t-if="doc.state in ['draft','sent']">Validità dell'offerta: 30 giorni</t>
+            </h4>
+        </xpath>
+
+        <!--Termini e condizioni su pagina a parte-->
+        <xpath expr="/t/t/div/div[6]" position="before">
+            <t t-if="env.company.id == 8"><p style="page-break-after:always;"/></t>
         </xpath>
     </template>
 </odoo>
