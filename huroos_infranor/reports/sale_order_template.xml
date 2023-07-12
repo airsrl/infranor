@@ -83,7 +83,7 @@
                     <span t-field="doc.payment_term_id.note"/>
                 </div>
             </div>
-            <h4 style="font-weight: bold;margin-top: 30px;">
+            <h4 t-if="env.company.id == 8" style="font-weight: bold;margin-top: 30px;">
                 <div style="margin-bottom: -20px;"><span t-field="doc.payment_term_id.note"/></div>
                 <t t-if="doc.incoterm"><span t-esc="doc.incoterm.name.lower().capitalize()"/><br/></t>
                 Imballo: Compreso<br/>
