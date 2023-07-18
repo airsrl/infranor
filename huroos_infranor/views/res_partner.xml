@@ -21,4 +21,15 @@
             </page>
         </field>
     </record>
+
+    <record id="infranor_view_partner_form_delivery_note_inherit" model="ir.ui.view">
+        <field name="name">infranor_view_partner_form_delivery_note_inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_it_delivery_note.res_partner_form_view"/>
+        <field name="arch" type="xml">
+            <field name="default_goods_appearance_id" position="before">
+                <field name="carrier_id"/>
+            </field>
+        </field>
+    </record>
 </odoo>

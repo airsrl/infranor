@@ -15,6 +15,11 @@ class ResPartner(models.Model):
         compute="_compute_current_year_budget",
         groups="huroos_infranor.vat_registries_group"
     )
+    carrier_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Vettore",
+        groups="huroos_infranor.vat_registries_group"
+    )
 
     @api.depends('budget_ids')
     def _compute_current_year_budget(self):
