@@ -5,3 +5,8 @@
 	url = git@github.com:airsrl/oca.git
 	branch = 16.0
 
+
+[submodule "airsrl/ecosystem"]
+	path = airsrl/ecosystem
+	url = git@github.com:airsrl/ecosystem.git
+	branch = 16.0
