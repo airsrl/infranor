@@ -15,6 +15,8 @@ class StockDeliveryNoteCreateWizard(models.TransientModel):
             # Compilazione automatica campi custom alla creazione del DDT
             delivery_note.order_ref = sale_order_ids.origin
             delivery_note.confirm_number = sale_order_ids.name
+            if delivery_note.partner_id and delivery_note.partner_id.carrier_id:
+                delivery_note.carrier_id = delivery_note.partner_id.carrier_id
 
             # Aggiunta delle righe di nota del SO
             note_lines = sale_order_ids.order_line.filtered(lambda l: l.display_type == "line_note")
