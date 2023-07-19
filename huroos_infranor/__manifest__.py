@@ -29,7 +29,7 @@
         'views/sale_order.xml',
         'views/purchase_order.xml',
         'views/stock_delivery_note.xml',
-
+        'views/huroos_dashboard.xml',
         'reports/sale_order_template.xml',
         'reports/stock_delivery_note_template.xml'
     ]

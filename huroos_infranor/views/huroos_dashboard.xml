@@ -1,0 +1,30 @@
+<odoo>
+
+
+    <record id="huroos_dashboard_from" model="ir.ui.view">
+        <field name="name">huroos_dashboard_from</field>
+        <field name="model">infranor.huroos.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="UN Missions">
+                <sheet>
+                    <group>
+                        <field name="file" string="File"/>
+                        <button name="compute_previous_invoiced" type="object" class="btn btn-primary" string="Aggiorna"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="huroos_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Huroos Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">infranor.huroos.dashboard</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!--  RC UN MISSION MENU'  -->
+    <menuitem id="huroos_dashboard_menu" name="Huroos Dashboard" parent="sale.menu_sale_config" action="huroos_dashboard_action" sequence="10" />
+
+</odoo>
