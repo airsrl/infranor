@@ -1,0 +1,11 @@
+<odoo>
+    <template id="infranor_header" inherit_id="huroos_reports_custom_external_layout.huroos_header">
+        <xpath expr="//div[@name='company_address']" position="inside">
+            <span t-if="company.id == 8">
+                <b>SEDE OPERATIVA/MAGAZZINO:</b>
+                <br/>
+                VIA DELLA MOIA, 1, 20044 ARESE (MI)
+            </span>
+        </xpath>
+    </template>
+</odoo>
