@@ -7,5 +7,11 @@
                 VIA DELLA MOIA, 1, 20044 ARESE (MI)
             </span>
         </xpath>
+
+        <xpath expr="//div[@name='company_address']//strong" position="replace">
+            <strong>
+                <span t-esc="company.name.upper()"/>
+            </strong>
+        </xpath>
     </template>
 </odoo>
