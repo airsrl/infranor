@@ -26,5 +26,9 @@
 
         <xpath expr="//table[@name='transport_info']//td[2]" position="replace"/>
         <xpath expr="//table[@name='transport_info']//td[3]" position="replace"/>
+
+        <xpath expr="//td[@name='td_transport_condition']//h3" position="replace">
+            <h3 class="cell_name">Resa</h3>
+        </xpath>
     </template>
 </odoo>
