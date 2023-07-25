@@ -41,14 +41,8 @@ class WizardExportFatturapa(models.TransientModel):
                     caus_list = narration_text.split("\n")
 
                     skip_other_causali = False
-                    if CAUSALE_UNICA in caus_list:
-                        skip_other_causali = True
-
                     for causale in caus_list:
                         if not causale:
-                            continue
-
-                        if causale != CAUSALE_UNICA and skip_other_causali:
                             continue
 
                         causale_list_200 = [
@@ -59,6 +53,9 @@ class WizardExportFatturapa(models.TransientModel):
                             # as expected by String200LatinType
                             causale = encode_for_export(causale200, 200)
                             res.append(causale)
+
+                        if causale == CAUSALE_UNICA:
+                            break
                 return res
 
             template_values_dict['get_causale'] = get_causale
