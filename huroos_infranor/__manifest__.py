@@ -14,7 +14,8 @@
         'purchase',
         'huroos_data_iva',
         'l10n_it_delivery_note',
-        'huroos_reports_ddt'
+        'huroos_reports_ddt',
+        'l10n_it_fatturapa_out'
     ],
 
     'data': [
