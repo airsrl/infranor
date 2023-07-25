@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from markupsafe import Markup
 import datetime
 
 
@@ -61,3 +62,17 @@ class SaleOrder(models.Model):
     def _search_expected_date(self, operator, value):
         orders = self.search([]).filtered(lambda x : filter_dates(x.expected_date, operator, value))
         return [('id', 'in', [x.id for x in orders] if orders else False)]
+
+    def _prepare_invoice(self):
+        invoice_vals = super(SaleOrder, self)._prepare_invoice()
+
+        new_notes = Markup(f"<p><h3><strong>Rif. Odoo: {self.name}</strong></h3></p>")
+        if self.origin:
+            new_notes += Markup(f"<p><h3><strong>Rif. Cliente: {self.origin}</strong></h3></p>")
+
+        if invoice_vals.get('narration', False):
+            new_notes += invoice_vals['narration']
+
+        invoice_vals['narration'] = new_notes
+
+        return invoice_vals
