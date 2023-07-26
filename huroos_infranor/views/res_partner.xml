@@ -12,9 +12,15 @@
                 <page name="budget" string="Budget cliente" attrs="{'invisible': [('parent_id', '!=', False)]}">
                     <field name="budget_ids">
                         <tree editable="bottom">
+                            <field name="currency_id" invisible="1"/>
                             <field name="year"/>
                             <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="invoiced_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="region_id" options="{'no_open': True}" optional="hide"/>
+                            <field name="sale_person_id" optional="hide"/>
+                            <field name="budget_progress" optional="show" widget="progressbar" nolabel="1"/>
+                            <field name="remaining_budget" optional="hide" decoration-success="remaining_budget &lt;= 0"/>
                         </tree>
                     </field>
                 </page>
