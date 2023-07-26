@@ -88,7 +88,7 @@ class ResPartnerBudget(models.Model):
             # Ordini dell'anno selezionato
             orders_by_year = record.partner_id.sale_order_ids.filtered(
                 lambda sale: sale.state == 'sale'
-                and fields.date(int(record.year), 1, 1) <= sale.date_order <= fields.date(int(record.year), 12, 31)
+                and fields.datetime(int(record.year), 1, 1, 0, 0, 0) <= sale.date_order <= fields.datetime(int(record.year), 12, 31, 23, 59, 59)
             )
 
             for order in orders_by_year:
