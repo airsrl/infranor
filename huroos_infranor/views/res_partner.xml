@@ -16,7 +16,7 @@
                             <field name="year"/>
                             <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             <field name="invoiced_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                             <field name="region_id" options="{'no_open': True}" optional="hide"/>
                             <field name="sale_person_id" optional="hide"/>
                             <field name="budget_progress" optional="show" widget="progressbar" nolabel="1"/>

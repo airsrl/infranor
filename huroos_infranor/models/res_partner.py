@@ -1,8 +1,9 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
+    _order = "display_name, id"
 
     budget_ids = fields.One2many(
         inverse_name="partner_id",
@@ -15,5 +16,3 @@ class ResPartner(models.Model):
         string="Vettore",
         groups="huroos_infranor.vat_registries_group"
     )
-
-

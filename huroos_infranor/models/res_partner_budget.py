@@ -20,7 +20,7 @@ def get_dynamic_year_selection():
 class ResPartnerBudget(models.Model):
     _name = "res.partner.budget"
     _description = "Budget per i contatti"
-    _order = "partner_id, year desc"
+    _order = "partner_id, year DESC"
 
     year = fields.Selection(
         string="Anno",
@@ -34,12 +34,12 @@ class ResPartnerBudget(models.Model):
         domain=[('parent_id', '=', False)],
         required=True
     )
-    amount = fields.Monetary(
+    budget_amount = fields.Monetary(
         string="Budget",
         currency_field="currency_id"
     )
     budget_progress = fields.Float(
-        string="Budget rimanente",
+        string="Progresso budget",
         compute="_compute_budget_progress"
     )
     remaining_budget = fields.Monetary(
@@ -56,6 +56,11 @@ class ResPartnerBudget(models.Model):
         string="Fatturato",
         currency_field="currency_id",
         compute="_compute_amount_invoiced"
+    )
+    current_year_invoiced_amount = fields.Float(
+        string="Fatturato anno corrente",
+        compute="_compute_current_year_invoiced_amount",
+        store=True
     )
     currency_id = fields.Many2one(
         comodel_name="res.currency",
@@ -110,13 +115,25 @@ class ResPartnerBudget(models.Model):
             for inv in invoices:
                 record.invoiced_amount += inv.amount_total
 
-    @api.depends('amount', 'invoiced_amount')
+    @api.depends('budget_amount', 'invoiced_amount')
     def _compute_budget_progress(self):
+        """Calcolo del budget rimanente e della percentuale di progresso"""
         for record in self:
             record.budget_progress = 0
             record.remaining_budget = 0
 
-            if record.amount != 0:
-                record.budget_progress = (record.invoiced_amount / record.amount) * 100
-                record.remaining_budget = record.amount - record.invoiced_amount
+            if record.budget_amount != 0:
+                record.budget_progress = (record.invoiced_amount / record.budget_amount) * 100
+                record.remaining_budget = record.budget_amount - record.invoiced_amount
+
+    @api.depends('partner_id.budget_ids')
+    def _compute_current_year_invoiced_amount(self):
+        """Calcolo del fatturato dell'anno corrente"""
+        for record in self:
+            current_year_budget_obj = record.partner_id.budget_ids.filtered(lambda bdg: bdg.year == str(fields.date.today().year))
+
+            if not current_year_budget_obj or record != current_year_budget_obj:
+                record.current_year_invoiced_amount = 0
+            else:
+                record.current_year_invoiced_amount = current_year_budget_obj.invoiced_amount
 
