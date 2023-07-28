@@ -93,18 +93,18 @@ class ResPartnerBudget(models.Model):
         compute="_compute_amount_invoiced"
     )
     current_year_invoiced_amount = fields.Float(
-        string="Fatturato anno corrente",
+        string="Fatt. anno corrente",
         compute="_compute_current_year_invoiced_amount",
         store=True,
         help="Campo tecnico al momento non utilizzato. Serve a contenere il fatturato dell'anno solare corrente."
     )
     invoiced_amount_date = fields.Monetary(
-        string="Fatturato alla data",
+        string="Fatt. alla data",
         currency_field="currency_id",
         compute="_compute_invoiced_amount_date"
     )
     invoiced_amount_date_previous_year = fields.Monetary(
-        string="Fatturato alla data a.p.",
+        string="Fatt. alla data anno prec.",
         currency_field="currency_id",
         compute="_compute_invoiced_amount_date",
         help="Fatturato alla data (anno precedente)"

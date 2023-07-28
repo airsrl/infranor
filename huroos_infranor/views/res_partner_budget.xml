@@ -42,5 +42,5 @@
     </record>
 
     <menuitem id="menu_res_partner_budget" name="Budget clienti" parent="sale.menu_sale_config"
-              action="action_res_partner_budget"/>
+              action="action_res_partner_budget" groups="huroos_infranor.vat_registries_group"/>
 </odoo>

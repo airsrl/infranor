@@ -6,7 +6,7 @@
     'author': "Huroos srl",
     'website': "https://www.huroos.com/",
     'category': 'Sales',
-    'version': '16.0.2',
+    'version': '16.0.3',
 
     'depends': [
         'base',
