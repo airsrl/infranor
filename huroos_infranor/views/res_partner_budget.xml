@@ -7,7 +7,10 @@
                 <field name="currency_id" invisible="1"/>
                 <field name="partner_id" decoration-bf="1"/>
                 <field name="year"/>
-                <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="reference_date" optional="hide"/>
+                <field name="invoiced_amount_date" optional="show"/>
+                <field name="invoiced_amount_date_previous_year" optional="show"/>
+                <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}" optional="hide"/>
                 <field name="invoiced_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                 <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                 <field name="region_id" options="{'no_open': True}" optional="show"/>
