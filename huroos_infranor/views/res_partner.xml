@@ -9,12 +9,21 @@
             </xpath>
 
             <page name="internal_notes" position="before">
-                <page name="budget" string="Budget cliente" attrs="{'invisible': [('parent_id', '!=', False)]}">
+                <page name="budget" string="Budget cliente" attrs="{'invisible': [('parent_id', '!=', False)]}" groups="huroos_infranor.vat_registries_group">
                     <field name="budget_ids">
                         <tree editable="bottom">
+                            <field name="currency_id" invisible="1"/>
                             <field name="year"/>
+                            <field name="reference_date" optional="hide"/>
+                            <field name="invoiced_amount_date" optional="show"/>
+                            <field name="invoiced_amount_date_previous_year" optional="show"/>
                             <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="invoiced_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="region_id" options="{'no_open': True}" optional="hide"/>
+                            <field name="sale_person_id" optional="hide"/>
+                            <field name="budget_progress" optional="show" widget="progressbar" nolabel="1"/>
+                            <field name="remaining_budget" optional="hide" decoration-success="remaining_budget &lt;= 0"/>
                         </tree>
                     </field>
                 </page>
@@ -28,7 +37,7 @@
         <field name="inherit_id" ref="l10n_it_delivery_note.res_partner_form_view"/>
         <field name="arch" type="xml">
             <field name="default_goods_appearance_id" position="before">
-                <field name="carrier_id"/>
+                <field name="carrier_id" groups="huroos_infranor.vat_registries_group"/>
             </field>
         </field>
     </record>
