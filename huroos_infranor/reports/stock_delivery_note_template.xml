@@ -24,6 +24,18 @@
             </td>
         </xpath>
 
+        <xpath expr="//table[@name='ddt_footer']//td[2]//h3" position="replace">
+            <h3 class="cell_name">Peso lordo KG</h3>
+        </xpath>
+        <xpath expr="//table[@name='ddt_footer']//td[3]//h3" position="replace">
+            <h3 class="cell_name">Peso netto KG</h3>
+        </xpath>
+
+        <xpath expr="//table[@name='signatures']//td[1]" position="replace"/>
+        <xpath expr="//table[@name='signatures']//td[1]//h3" position="replace">
+            <h3 class="cell_name">Firma del conducente</h3>
+        </xpath>
+
         <xpath expr="//table[@name='transport_info']//td[2]" position="replace"/>
         <xpath expr="//table[@name='transport_info']//td[3]" position="replace"/>
 
