@@ -8,6 +8,10 @@
                 <field name="order_ref"/>
                 <field name="confirm_number" attrs="{'readonly': [('sale_count', '!=', 0)]}"/>
             </field>
+
+            <field name="carrier_id" position="attributes">
+                <attribute name="domain"/>
+            </field>
         </field>
     </record>
 </odoo>
