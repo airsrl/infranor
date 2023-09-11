@@ -15,7 +15,8 @@
         'huroos_data_iva',
         'l10n_it_delivery_note',
         'huroos_reports_ddt',
-        'l10n_it_fatturapa_out'
+        'l10n_it_fatturapa_out',
+        'huroos_country_region'
     ],
 
     'data': [
@@ -33,7 +34,7 @@
         'views/huroos_dashboard.xml',
 
         'reports/external_layout_custom.xml',
-        'reports/sale_order_template.xml',
+        # 'reports/sale_order_template.xml',
         'reports/stock_delivery_note_template.xml'
     ]
 }

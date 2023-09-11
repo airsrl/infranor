@@ -4,6 +4,7 @@ from odoo import models
 class StockDeliveryNoteCreateWizard(models.TransientModel):
     _inherit = "stock.delivery.note.create.wizard"
 
+
     def confirm(self):
         res = super(StockDeliveryNoteCreateWizard, self).confirm()
 
@@ -25,7 +26,7 @@ class StockDeliveryNoteCreateWizard(models.TransientModel):
                 line_vals = {
                     'name': line.name,
                     'display_type': "line_note",
-                    'sequence': line.sequence
+                    'sequence': line.sequence,
                 }
                 new_lines.append((0, 0, line_vals))
             delivery_note.write({'line_ids': new_lines})

@@ -17,3 +17,4 @@ class StockDeliveryNote(models.Model):
     def _get_default_carrier(self):
         if self.partner_id and self.partner_id.carrier_id:
             self.carrier_id = self.partner_id.carrier_id
+
