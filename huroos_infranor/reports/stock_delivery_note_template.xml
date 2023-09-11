@@ -24,11 +24,42 @@
             </td>
         </xpath>
 
+        <xpath expr="//table[@name='ddt_footer']//td[2]//h3" position="replace">
+            <h3 class="cell_name">Peso lordo KG</h3>
+        </xpath>
+        <xpath expr="//table[@name='ddt_footer']//td[3]//h3" position="replace">
+            <h3 class="cell_name">Peso netto KG</h3>
+        </xpath>
+
+        <xpath expr="//table[@name='signatures']//td[1]" position="replace"/>
+        <xpath expr="//table[@name='signatures']//td[1]//h3" position="replace">
+            <h3 class="cell_name">Firma del conducente</h3>
+        </xpath>
+
         <xpath expr="//table[@name='transport_info']//td[2]" position="replace"/>
         <xpath expr="//table[@name='transport_info']//td[3]" position="replace"/>
 
         <xpath expr="//td[@name='td_transport_condition']//h3" position="replace">
             <h3 class="cell_name">Resa</h3>
         </xpath>
+
+        <!-- Colonna [NUMERO DI SERIE] dinamica - Compare solo se c'è un prodotto con il numero di serie -->
+        <xpath expr="//div[@class='page']//table[@name='delivery_note_rows']" position="before">
+            <!--Controllo se c'è almeno una riga in cui il prodotto ha il barcode, altrimenti non stampo la colonna-->
+            <t t-set="display_product_barcode" t-value="any(line.product_id.barcode for line in doc.line_ids)"/>
+        </xpath>
+        <xpath expr="//table[@name='delivery_note_rows']//th[@name='th_description']" position="after">
+            <t t-if="display_product_barcode">
+                <th name="th_serial">SERIALE</th>
+            </t>
+        </xpath>
+        <xpath expr="//table[@name='delivery_note_rows']//td[@name='td_description']" position="after">
+            <t t-if="display_product_barcode">
+                <td name="td_serial">
+                    <span t-field="line.product_id.barcode"/>
+                </td>
+            </t>
+        </xpath>
+
     </template>
 </odoo>

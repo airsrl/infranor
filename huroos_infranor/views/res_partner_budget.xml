@@ -4,10 +4,19 @@
         <field name="model">res.partner.budget</field>
         <field name="arch" type="xml">
             <tree editable="bottom" expand="1">
+                <field name="currency_id" invisible="1"/>
                 <field name="partner_id" decoration-bf="1"/>
                 <field name="year"/>
-                <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="reference_date" optional="hide"/>
+                <field name="invoiced_amount_date" optional="show"/>
+                <field name="invoiced_amount_date_previous_year" optional="show"/>
+                <field name="sales_amount" widget="monetary" options="{'currency_field': 'currency_id'}" optional="hide"/>
+                <field name="invoiced_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="budget_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="region_id" options="{'no_open': True}" optional="show"/>
+                <field name="sale_person_id" optional="show"/>
+                <field name="budget_progress" optional="show" widget="progressbar" nolabel="1"/>
+                <field name="remaining_budget" optional="hide" decoration-success="remaining_budget &lt;= 0"/>
             </tree>
         </field>
     </record>
@@ -19,6 +28,8 @@
             <search>
                 <filter string="Cliente" name="group_by_partner" context="{'group_by': 'partner_id'}"/>
                 <filter string="Anno" name="group_by_year" context="{'group_by': 'year'}"/>
+                <filter string="Addetto vendite" name="group_by_sale_person" context="{'group_by': 'sale_person_id'}"/>
+                <filter string="Regione" name="group_by_region" context="{'group_by': 'region_id'}"/>
             </search>
         </field>
     </record>
@@ -31,5 +42,5 @@
     </record>
 
     <menuitem id="menu_res_partner_budget" name="Budget clienti" parent="sale.menu_sale_config"
-              action="action_res_partner_budget"/>
+              action="action_res_partner_budget" groups="huroos_infranor.vat_registries_group"/>
 </odoo>

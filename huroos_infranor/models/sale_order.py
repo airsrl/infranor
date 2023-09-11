@@ -29,17 +29,11 @@ def filter_dates(date, operator, value):
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    current_year_budget = fields.Float(
-        related="partner_id.current_year_budget",
-        store=True,
-        groups="huroos_infranor.vat_registries_group"
-    )
-
     expected_date = fields.Datetime(
         string="Expected Date",
         compute='_compute_expected_date', store=False,  # Note: can not be stored since depends on today()
         help="Delivery date you can promise to the customer, computed from the minimum lead time of the order lines.",
-        search = "_search_expected_date")
+        search="_search_expected_date")
 
     offer_number = fields.Char(
         help="Campo tecnico per visualizzare sul report un suffisso diverso tra Preventivo e Ordine",
