@@ -4,14 +4,9 @@ from odoo import api, fields, models
 class StockDeliveryNoteLine(models.Model):
     _inherit = "stock.delivery.note.line"
 
-    @api.model
-    def _get_serial_default(self):
-        return {'name': 'hello'}
-
     serial_ids = fields.Many2many(
         "stock.lot",
         string="Numeri di Serie",
-        default=_get_serial_default
     )
 
     # @api.model
