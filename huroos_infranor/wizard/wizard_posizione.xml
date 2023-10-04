@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Form WIZARD-->
+    <record id="posizione_form_wizard" model="ir.ui.view">
+        <field name="name">product.product.form</field>
+        <field name="model">posizione.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="new_position" required="1" class="oe_inline"/>
+                    </group>
+
+
+                </sheet>
+                <footer>
+                    <button string="Conferma" type="object" name="edit_posizione"/>
+                    <button special="cancel" string="Annulla" name="discard"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    Azione WIZARD-->
+    <record id="action_edit_posizione" model="ir.actions.act_window">
+        <field name="name">Modifica Posizione</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">posizione.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

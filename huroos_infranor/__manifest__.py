@@ -33,7 +33,7 @@
         'views/stock_delivery_note.xml',
         'views/huroos_dashboard.xml',
         'views/stock_picking_form.xml',
-
+        'wizard/wizard_posizione.xml',
         'reports/external_layout_custom.xml',
         'reports/sale_order_template.xml',
         'reports/stock_delivery_note_template.xml'
