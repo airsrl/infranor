@@ -22,7 +22,7 @@
     'data': [
         'security/vat_registry_security.xml',
         'security/ir.model.access.csv',
-
+        'views/order_line_filters.xml',
         'views/account_journal_view.xml',
         'views/account_view.xml',
         'views/date_iva.xml',
