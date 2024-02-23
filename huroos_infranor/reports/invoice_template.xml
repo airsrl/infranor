@@ -1,0 +1,48 @@
+<odoo>
+    <template id="infranor_report_invoice_document" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//div[@id='total']" position="before">
+            <t t-set="has_ddt" t-value="False"/>
+            <t t-foreach="o.line_ids" t-as="line">
+                <t t-if="line.delivery_note_id.transport_condition_id">
+                    <t t-set="has_ddt" t-value="True"/>
+                </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@id='total']" position="attributes">
+            <attribute name="class" add="d-flex" separator=" "/>
+        </xpath>
+
+        <xpath expr="//div[@id='total']" position="before">
+            <t t-if="has_ddt == True">
+                <table class="table-sm avoid-page-break-inside col-4 table-bordered bg-white float-start"
+                       style="background-color:#fff !important; position:relative;">
+                    <tbody class="bg-white" style="background-color:#fff !important;">
+                        <tr class="text-start bg-white" style="background-color:#fff !important;">
+                            <td class="bg-white"
+                                style="background-color:#fff !important; border:1px solid black!important;">
+                                <span style="color:black!important;" class="fw-bold">Resa</span>
+                                <br/>
+                                <br/>
+                                <t t-foreach="o.delivery_note_ids" t-as="line">
+
+                                    <span style="color:black!important;" t-esc="line.transport_condition_id.name"
+                                          class="oe_form_field text-end"/>
+                                    <br/>
+
+                                </t>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="col-2"/>
+
+
+            </t>
+
+        </xpath>
+
+
+    </template>
+</odoo>

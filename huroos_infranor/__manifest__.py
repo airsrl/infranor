@@ -37,6 +37,7 @@
         'reports/external_layout_custom.xml',
         'reports/sale_order_template.xml',
         'reports/stock_delivery_note_template.xml',
+        'reports/invoice_template.xml',
         'views/product_product.xml',
     ]
 }
