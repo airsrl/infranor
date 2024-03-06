@@ -83,8 +83,10 @@
                     <span t-field="doc.payment_term_id.note"/>
                 </div>
             </div>
+
             <h4 t-if="env.company.id == 8" style="font-weight: bold;margin-top: 30px;">
                 <div style="margin-bottom: -20px;"><span t-field="doc.payment_term_id.note"/></div>
+                Condizione di Trasporto: <span t-esc="doc.partner_id.default_transport_condition_id.name"/><br/>
                 <t t-if="doc.incoterm"><span t-esc="doc.incoterm.name.lower().capitalize()"/><br/></t>
                 Imballo: Compreso<br/>
                 <t t-if="doc.state in ['draft','sent']">Validità dell'offerta: 30 giorni</t>
