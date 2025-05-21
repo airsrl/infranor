@@ -39,5 +39,6 @@
         'reports/stock_delivery_note_template.xml',
         'reports/invoice_template.xml',
         'views/product_product.xml',
+        'views/stock_quant.xml',
     ]
 }

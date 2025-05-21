@@ -7,3 +7,4 @@ from . import huroos_dashboard
 from . import stock_delivery_note_line
 from . import product_template
 from . import purchase_order_line
+from . import stock_quant
