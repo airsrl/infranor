@@ -9,5 +9,6 @@ class StockQuant(models.Model):
     @api.model
     def _get_inventory_fields_create(self):
         res = super(StockQuant, self)._get_inventory_fields_create()
-        res = res.append('price')
+        if res:
+            res = res + ['price']
         return res
