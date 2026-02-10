@@ -1,0 +1,11 @@
+<odoo>
+    <record id="motor_type_linear_tree_view" model="ir.ui.view">
+        <field name="name">motor_type_linear</field>
+        <field name="model">motor.type.linear</field>
+        <field name="arch" type="xml">
+            <tree string="Tipi di Motori Lineari" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

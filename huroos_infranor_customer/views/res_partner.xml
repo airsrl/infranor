@@ -1,0 +1,65 @@
+<odoo>
+    <!-- FORM-->
+    <record id="res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+
+            <!-- Aggiungo 'Fatturato' e 'Potenziale' dopo il campo 'VAT' -->
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="revenue"/>
+                <field name="potential"/>
+            </xpath>
+
+            <!-- Aggiungo Tab 'Extra' -->
+            <xpath expr="//notebook" position="inside">
+                <page name="extra" string="Extra">
+                    <group name="container_row_2">
+                        <group string="Motori" name="s_motors">
+                            <field name="motors_main_competitors" string="Competitor principali"/>
+                            <field name="motors_rotary_id" string="Tipi Rotativi usati"/>
+                            <field name="motors_linear_id" string="Tipi Lineari usati"/>
+                            <field name="motors_use_tubular" string="Tubolari?"/>
+                            <field name="motors_feedback_id" string="Feedback gestibili"/>
+                            <field name="motors_protection_ids" string="Livelli di protezione" widget="many2many_tags"/>
+                            <field name="motors_voltage_id" string="Tensioni supportate"/>
+                            <field name="motors_integrated_electronics" string="Elettronica integrata?"/>
+                            <field name="motors_integrated_electronics_voltage" string="Tensione di alimentazione elettronica integrata"/>
+                        </group>
+                        <group string="Azionamenti" name="s_drives">
+                            <field name="drives_competitors" string="Competitor principali"/>
+                            <field name="drives_voltage_ids" string="Tensioni supportate" widget="many2many_tags"/>
+                            <field name="drives_feedback_ids" string="Feedback gestibili" widget="many2many_tags"/>
+                            <field name="drives_bus_id" string="Bus compatibili"/>
+                            <field name="drives_security_ids" string="Funzioni di sicurezza disponibili" widget="many2many_tags"/>
+                        </group>
+                        <group string="Bus di Campo" name="s_bus">
+                            <field name="bus_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Riduttori" name="s_reducer">
+                            <field name="reducer_competitors" string="Competitor principali"/>
+                            <field name="reducer_type_ids" string="Tipi usati" widget="many2many_tags"/>
+                        </group>
+                        <group string="Visite / Chiamate Commerciali" name="s_commercial">
+                            <field name="commercial_date_meet" string="Data visita/chiamata"/>
+                            <field name="commercial_note" string="Note associate"/>
+                        </group>
+                        <group string="Cronologia Attività" name="s_commercial">
+                            <field name="commercial_activity_ids" colspan="2" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="description"/>
+                                    <field name="date"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
+

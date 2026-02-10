@@ -1,0 +1,11 @@
+<odoo>
+    <record id="feedback_type_tree_view" model="ir.ui.view">
+        <field name="name">feedback_type</field>
+        <field name="model">feedback.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tipi di Feedback" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<odoo>
+
+    <!-- AZIONI -->
+    <record id="action_bus_type" model="ir.actions.act_window">
+        <field name="name">Tipi di Bus</field>
+        <field name="res_model">bus.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_feedback_type" model="ir.actions.act_window">
+        <field name="name">Tipi di Feedback</field>
+        <field name="res_model">feedback.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_motor_type_linear" model="ir.actions.act_window">
+        <field name="name">Tipi di Motori Lineari</field>
+        <field name="res_model">motor.type.linear</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_motor_type_rotary" model="ir.actions.act_window">
+        <field name="name">Tipi di Motori Rotativi</field>
+        <field name="res_model">motor.type.rotary</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_protection_level" model="ir.actions.act_window">
+        <field name="name">Livelli di Protezione</field>
+        <field name="res_model">protection.level</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_reducer_type" model="ir.actions.act_window">
+        <field name="name">Tipi di Riduttori</field>
+        <field name="res_model">reducer.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_security_function" model="ir.actions.act_window">
+        <field name="name">Funzioni di Sicurezza</field>
+        <field name="res_model">security.function</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <record id="action_voltage_type" model="ir.actions.act_window">
+        <field name="name">Tipi di Voltaggio</field>
+        <field name="res_model">voltage.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- MENU ROOT -->
+    <menuitem id="menu_extra" name="Extra" parent="contacts.res_partner_menu_config" sequence="20"/>
+    <menuitem id="menu_bus_type" name="Tipi di Bus" parent="menu_extra" sequence="10" action="action_bus_type"/>
+    <menuitem id="menu_feedback_type" name="Tipi di Feedback" parent="menu_extra" sequence="10" action="action_feedback_type"/>
+    <menuitem id="menu_motor_type_linear" name="Tipi di Motori Lineari" parent="menu_extra" sequence="10" action="action_motor_type_linear"/>
+    <menuitem id="menu_motor_type_rotary" name="Tipi di Motori Rotativi" parent="menu_extra" sequence="10" action="action_motor_type_rotary"/>
+    <menuitem id="menu_protection_level" name="Livelli di Protezione" parent="menu_extra" sequence="10" action="action_protection_level"/>
+    <menuitem id="menu_reducer_type" name="Tipi di Riduttori" parent="menu_extra" sequence="10" action="action_reducer_type"/>
+    <menuitem id="menu_security_function" name="Funzioni di Sicurezza" parent="menu_extra" sequence="10" action="action_security_function"/>
+    <menuitem id="menu_voltage_type" name="Tipi di Voltaggio" parent="menu_extra" sequence="10" action="action_voltage_type"/>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <record id="security_function_tree_view" model="ir.ui.view">
+        <field name="name">security_function</field>
+        <field name="model">security.function</field>
+        <field name="arch" type="xml">
+            <tree string="Funzioni di Sicurezza" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

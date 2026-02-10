@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_create,perm_unlink,perm_write,perm_read
+access_bus_type,access_bus_type,model_bus_type,base.group_user,1,1,1,1
+access_commercial_activity_line,access_commercial_activity_line,model_commercial_activity_line,base.group_user,1,1,1,1
+access_feedback_type,access_feedback_type,model_feedback_type,base.group_user,1,1,1,1
+access_motor_type_linear,access_motor_type_linear,model_motor_type_linear,base.group_user,1,1,1,1
+access_motor_type_rotary,access_motor_type_rotary,model_motor_type_rotary,base.group_user,1,1,1,1
+access_protection_level,access_protection_level,model_protection_level,base.group_user,1,1,1,1
+access_reducer_type,access_reducer_type,model_reducer_type,base.group_user,1,1,1,1
+access_security_function,access_security_function,model_security_function,base.group_user,1,1,1,1
+access_voltage_type,access_voltage_type,model_voltage_type,base.group_user,1,1,1,1

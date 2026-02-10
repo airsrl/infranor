@@ -1,0 +1,11 @@
+<odoo>
+    <record id="bus_type_tree_view" model="ir.ui.view">
+        <field name="name">bus_type</field>
+        <field name="model">bus.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tipi di Bus" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <record id="motor_type_rotary_tree_view" model="ir.ui.view">
+        <field name="name">motor_type_rotary</field>
+        <field name="model">motor.type.rotary</field>
+        <field name="arch" type="xml">
+            <tree string="Tipi di Motori Rotativi" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
